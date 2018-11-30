@@ -1,0 +1,7 @@
+#loop and sparql query
+for i in $(cat /cygdrive/c/Users/ZYC/Desktop/test/gnd1000.csv); do 
+curl -o out.csv -G 'https://query.wikidata.org/sparql' \
+     --header "Accept: text/csv"  \
+     --data-urlencode query='
+ SELECT ?s WHERE {?s wdt:P227 '$i'.}'
+done
